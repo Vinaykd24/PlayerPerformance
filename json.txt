@@ -1,0 +1,16 @@
+[
+  '{{repeat(5, 7)}}',
+  {
+    pname: '{{firstName()}} {{surname()}}',
+    company: '{{company().toUpperCase()}}',
+    matches: '{{integer(10, 15)}}',
+    inn: '{{integer(5, 10)}}',
+    runScored: '{{integer(50, 300)}}',
+    ballfaced: '{{integer(30, 300)}}',
+    overs: '{{integer(7, 20)}}',
+    maidens: '{{integer(1, 6)}}',
+    runsGiven: '{{integer(20, 100)}}',
+    wickets: '{{integer(0, 10)}}',
+    about: '{{lorem(1, "paragraphs")}}'
+  }
+]

@@ -1,0 +1,77 @@
+<my-nav></my-nav>
+<section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <table class="table table-condensed table-hover">
+                    <thead>
+                        <th>Player Name</th>
+                        <th>Matches</th>
+                        <th>Innings</th>
+                        <th>Run Scored</th>
+                        <th>Ball Faced</th>
+                        <!--<th>Batting Strike Rate</th>-->
+                        <th>Batting Average</th>
+                        <th>Overs</th>
+                        <th>Maidens</th>
+                        <th>Runs Given</th>
+                        <th>Wickets</th>
+                        <th>Economy Rate</th>
+                        <!--<th>Bowling Strike Rate</th>-->
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="#item of players" (click)='viewPlayerInfo(item)'>
+                            <td>{{item.pname}}</td>
+                            <td>{{item.matches}}</td>
+                            <td>{{item.inn}}</td>
+                            <td>{{item.runScored}}</td>
+                            <td>{{item.ballfaced}}</td>
+                            <!--<td>{{(item.runScored/item.ballfaced)*100 | number:'2.1-2'}}</td>-->
+                            <td>{{item.runScored/item.inn | number:'2.1-2'}}</td>
+                            <td>{{item.overs}}</td>
+                            <td>{{item.maidens}}</td>
+                            <td>{{item.runsGiven}}</td>
+                            <td>{{item.wickets}}</td>
+                            <td>{{item.runsGiven/item.overs | number:'2.1-2'}}</td>
+                            <!--<td>{{item.overs*6/item.wickets | number:'2.1-2'}}</td>-->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .table {
+        font-size: 1.1em;
+    }
+    
+    .table tbody tr {
+        transition: 1s ease;
+        cursor: pointer
+    }
+    
+    .table tbody tr:hover {
+        transform: rotateX(360deg);
+        background: #046a99
+    }
+    
+    section#playerDetails {
+        background: aliceblue;
+        opacity: 0.8;
+        color: black;
+    }
+    .playerImg{
+        margin-right: 15px;
+    }
+</style>
+<section id="playerDetails">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <player-details *ngIf="currentPlayer" [player]="currentPlayer"></player-details>
+            </div>
+        </div>
+    </div>
+
+</section>
